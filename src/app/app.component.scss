@@ -1,0 +1,289 @@
+@charset "UTF-8";
+
+/* このcssはビスが追加で書いたものです。公式ではありません。
+----------------------------------------------------- */
+
+
+/* 共通部分
+----------------------------------------------------- */
+
+html{
+    font-size: 100%;
+}
+
+body{
+    font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
+    line-height: 1.7;
+    color: #432;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+i{
+    position: relative;
+    top: 5px;
+}
+
+/* ヘッダー部分
+----------------------------------------------------- */
+
+.logo{
+    width: 250px;
+    margin-top: 14px;
+}
+.main-nav{
+    display: flex;
+    font-size: 1.25rem;
+    margin-top: 34px;
+    list-style: none;
+}
+.main-nav li{
+    margin-left: 36px;
+}
+.main-nav a{
+    color: #432;
+}
+.main-nav a:hover{
+    color: #0bd;
+}
+.page-header{
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.home-content{
+    text-align: center;
+    margin-top: 3%;
+}
+.home-content p{
+    font-size: 1.125rem;
+    margin: 10px 0 14px;
+}
+.home-content textarea{
+    margin-bottom: 42px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+.home-content a{
+    color: #0f2350; /* #432; */
+    text-decoration: underline;
+}
+.home-content a:hover{
+    color: #0bd;
+}
+
+
+/* 見出し */
+.page-title{
+    font-size: 5rem;
+    font-family: 'Philosopher', serif;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+/* ボタン */
+.button{
+    font-size: 1.375rem;
+    background: #0bd;
+    color: #fff;
+    border-radius: 5px;
+    padding: 14px 30px;
+    margin-bottom: 40px;
+}
+.button:hover{
+    background: #0090aa;
+}
+
+/* 大きな背景画像 */
+.big-bg{
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+#home{
+    background-image: url(https://kify.rei-yumesaki.net/images/gra_back_11.png);
+    margin-bottom: 40px;
+}
+#home .page-title{
+    text-transform: none;
+}
+
+
+
+/* メインコンテンツ部分
+----------------------------------------------------- */
+
+/* 記事部分 */
+article{
+    width:62%;
+    order: 2;
+}
+#preview-content{
+    position: sticky;
+    top: 3vh;
+}
+
+
+.grid{
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(5, minmax(80px, 1fr));
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.item{
+    min-width: 30px;
+}
+
+.tab-pane h3{
+    margin: 0 20px;
+}
+
+/* サイドバー */
+aside{
+    width: 34%;
+    order: 1;
+}
+aside p{
+    padding: 2px 10px 10px 10px;
+    margin: 0;
+}
+
+.main-contents{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.sub-title{
+    font-size: 1.375rem;
+    padding: 0 8px 8px;
+    border-bottom: 2px #0bd solid;
+    font-weight: norman;
+}
+
+.sub-menu{
+    margin-bottom: 50px;
+}
+.sub-menu li{
+    border-bottom: 1px #ddd solid;
+}
+.sub-menu a{
+    color: #432;
+    padding: 10px;
+    display: block;
+}
+.sub-menu a:hover{
+    color: #0bd;
+}
+#gra-menu a{
+    padding-top: 0;
+}
+
+.sub-menu button{
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    padding: 0 17px;
+}
+
+select{
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.tab-content{
+    background-color: lightgray;
+    padding:10px 0 20px 0;
+    width: 640px;
+}
+
+
+/* プレビュー部分
+----------------------------------------------------- */
+.preview{
+    margin: 10px 0px;
+    width: 640px;
+    height: 360px;
+    position: relative;
+}
+
+.preview a{
+    position: absolute;
+    color: #432;
+}
+.preview a:hover{
+    color: #0bd;
+}
+
+
+
+/* 再生ボタン
+----------------------------------------------------- */
+#start .button{
+    font-size: 0.8rem;
+    position: fixed;
+    bottom: 2vh;
+    right: 2vh;
+    margin: 0;
+    padding: 5px 15px;
+    border-radius: 30px;
+    background-color: #fff;
+    color: gray;
+    border: 2px solid gray;
+}
+#start .button:hover{
+    background-color: snow;
+    color: #0bd;
+    border: 2px solid #0bd;
+}
+
+
+/* フッター部分
+----------------------------------------------------- */
+
+footer{
+    background:#432;
+    text-align: center;
+    padding: 26px 0;
+}
+footer p{
+    color: #fff;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+footer a{
+    color: #fff;
+}
+
+
+
+.nav-link{
+  padding: 0px 10px 10px;
+  cursor: pointer;
+}
+
+.nav-link:hover small{
+  color: midnightblue; // #0bd;
+  font-weight: 800;
+}
+
+
+.selectedItem{
+  border: solid 3px whitesmoke;
+  margin: -5px;
+}
