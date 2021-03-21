@@ -21,6 +21,8 @@ export class AppComponent implements OnInit {
 
   root: string = 'https://kify.rei-yumesaki.net/';
 
+  chromeExtensionAddress = 'https://chrome.google.com/webstore/detail/%E6%A3%8B%E8%AD%9C%E8%AA%AD%E3%81%BF%E3%81%A1%E3%82%83%E3%82%93%E6%A3%8B%E8%AD%9C%E5%85%B1%E6%9C%89/akijciiemppimilfbdbbnjlgffbbibal?hl=ja&authuser=0';
+
   selectedItem: number = null;
 
   setNumber: string; // 設定番号
@@ -44,6 +46,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+    this.buttonEvent();
     this.getParam();
     // 本当は unsubscribe 書いたほうがいいけどページ１つしかないので
     this.activatedRoute.queryParams.subscribe(
@@ -92,6 +95,40 @@ export class AppComponent implements OnInit {
       },
     );
   }
+
+  /**
+   * ページ遷移が行われなかったときに拡張機能のインストいーるを促す
+   */
+  buttonEvent(): void{
+    let active = true;
+    window.addEventListener("blur", () => {
+      console.log("ページからフォーカスが外れた");
+      active = false;
+    });
+    var button1 = document.getElementById("kif-play-1");
+    button1.addEventListener('click', (e) => {
+      active = true;
+      setTimeout(() => {
+        if(active){
+          if(confirm('棋譜読みちゃん棋譜共有拡張機能が必要です。インストールページへ移動しますか？')){
+            open(this.chromeExtensionAddress, '_blank');
+          }
+        }
+      }, 500);
+    }, false);
+    var button2 = document.getElementById("kif-play-2");
+    button2.addEventListener('click', (e) => {
+      active = true;
+      setTimeout(() => {
+        if(active){
+          if(confirm('棋譜読みちゃん棋譜共有拡張機能が必要です。インストールページへ移動しますか？')){
+            open(this.chromeExtensionAddress, '_blank');
+          }
+        }
+      }, 500);
+    }, false);
+  }
+
 
   getParam(){
     this.kifu = localStorage.getItem('kifu');

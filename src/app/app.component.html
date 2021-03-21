@@ -32,7 +32,7 @@
 			<p>棋譜入力（KIF/KI2/CSA）※<a href="https://help.kify.rei-yumesaki.net/guide/kifu/" target="_blank">棋譜のサンプルを取得</a></p>
 			<textarea cols="120" rows="10" id="inputKifu" [(ngModel)]="kifu"></textarea><br>
 			<button id="kif-play-1" (mouseover)="setSettings()" class="button">棋譜再生ページへ <i class="material-icons">play_arrow</i></button>
-			<p style="padding-bottom: 10px;">※ご利用には<a href="" target="_blank">chrome拡張機能</a>が必要です。</p>
+			<p style="padding-bottom: 10px;">※ご利用には<a [href]="chromeExtensionAddress" target="_blank">chrome拡張機能</a>が必要です。</p>
 		</div>
 	</div>
 
