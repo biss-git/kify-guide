@@ -10,7 +10,6 @@ declare function gunzip(compressed: Uint8Array): Uint8Array;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'kify-guide';
 
   constructor(
     private activatedRoute: ActivatedRoute,

@@ -28,11 +28,19 @@
 		</header>
 
 		<div class="home-content wrapper">
-			<h2 class="page-title">声も見た目もお好みで</h2>
-			<p>棋譜入力（KIF/KI2/CSA）※<a href="https://help.kify.rei-yumesaki.net/guide/kifu/" target="_blank">棋譜のサンプルを取得</a></p>
+			<h2 style="float: left; margin-right: 14px;" class="page-title">棋譜共有ちゃん</h2>
+			<p style="text-align: left; padding-top: 15px;">
+        本アプリは、<a href="https://help.kify.rei-yumesaki.net/">「棋譜読みちゃん」</a>の非公式拡張ツールです。<br>
+        棋譜読みちゃん本家から許可を得て公開しています。<br>
+        <!-- 使い方は<a href="assets/help/help.html">こちら</a>をご覧ください。 -->
+      </p>
+			<p style="clear: both; margin-top: 50px; margin-bottom: 2px;">棋譜入力欄（KIF/KI2/CSA）※<a href="https://help.kify.rei-yumesaki.net/guide/kifu/" target="_blank">棋譜のサンプルを取得</a></p>
 			<textarea cols="120" rows="10" id="inputKifu" [(ngModel)]="kifu"></textarea><br>
 			<button id="kif-play-1" (mouseover)="setSettings()" class="button">棋譜再生ページへ <i class="material-icons">play_arrow</i></button>
-			<p style="padding-bottom: 10px;">※ご利用には<a [href]="chromeExtensionAddress" target="_blank">chrome拡張機能</a>が必要です。</p>
+      <br>
+			<!-- <button class="how-button" onclick="location.href='assets/help/help.html'">使い方</button> -->
+			<p style="padding-bottom: 10px;">ご利用には<a [href]="chromeExtensionAddress" target="_blank">chrome拡張機能</a>が必要です。
+        <span style="font-weight: 800;">詳細な使い方</span>は<a href="assets/help/help.html">こちら</a>をご覧ください。</p>
 		</div>
 	</div>
 
@@ -396,7 +404,7 @@
 					</a>
 					<a data-toggle="tab" href="#panel-menu06" style="top: 120px; left: 100px;">
 						<img id="pre_select1" [src]="root + 'images/gra_selection_' + selectionNumber + '.png'" width="23px">
-						<img id="pre_koma3" [src]="root + 'images/koma1_' + komaNumber + '.png'" width="23px" style="position: absolute; top: 3px; left: 0px;">
+						<img id="pre_koma3" [src]="root + 'images/koma11_' + komaNumber + '.png'" width="23px" style="position: absolute; top: 3px; left: 0px;">
 					</a>
 					<a data-toggle="tab" href="#panel-menu06" style="top: 220px; left: 193px;">
 						<img id="pre_select2" [src]="root + 'images/gra_selection_' + selectionNumber + '.png'" width="23px">
