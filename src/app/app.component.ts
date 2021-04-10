@@ -134,6 +134,10 @@ export class AppComponent implements OnInit {
     if(this.kifu == 'null'){ this.kifu = '';}
 
     this.setNumber = localStorage.getItem("kify_setting_now_set_number");
+    if(this.setNumber == null){
+      this.setNumber = '1';
+      localStorage.setItem("kify_setting_now_set_number", this.setNumber);
+    }
     this.voiceNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_1");
     this.komaotoNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_2");
     this.playSpeedNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_3");
@@ -151,7 +155,6 @@ export class AppComponent implements OnInit {
     //this.addMilliSecNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_15");
     this.selectionNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_16");
     this.logoNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_17");
-    if(this.setNumber == null){ this.setNumber = '1';}
     if(this.voiceNumber == null){ this.voiceNumber = '1';}
     if(this.komaotoNumber == null){ this.komaotoNumber = '1';}
     if(this.playSpeedNumber == null){ this.playSpeedNumber = '0.5';}
@@ -233,8 +236,9 @@ export class AppComponent implements OnInit {
   }
 
   selectGraphicItem(key: number, itemNumber: number): void{
-      localStorage.setItem("kify_setting_" + this.setNumber + "_" + key, itemNumber.toString());
-      this.getParam();
+    console.log(key, itemNumber);
+    localStorage.setItem("kify_setting_" + this.setNumber + "_" + key, itemNumber.toString());
+    this.getParam();
   }
 
 }
