@@ -251,7 +251,12 @@ export class KifuService {
     if(to == 0 && koma == 0 && posi == 0){
       return '投了';
     }
-    return this.moveFromByte(to) + this.komaFromByte(koma) + this.posiFromByte(posi);
+    let temp = this.moveFromByte(to) + this.komaFromByte(koma) + this.posiFromByte(posi)
+    if(temp.length > 3){
+      // "同　金上" → "同金上"　のように修正する（無駄なスペースを除去）
+      temp = temp.replace('　', '');
+    }
+    return temp;
   }
 
   private moveFromByte(to: number): string{
@@ -318,6 +323,7 @@ export class KifuService {
     switch(lr){
       case 1: move += '右'; break;
       case 2: move += '左'; break;
+      case 3: move += '直'; break;
     }
     switch(tb){
       case 1: move += '上'; break;
