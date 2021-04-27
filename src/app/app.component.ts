@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { KifuService } from './service/kifu.service';
 
 declare function gunzip(compressed: Uint8Array): Uint8Array;
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    this.buttonEvent();
+    this.SetEvent();
     this.getParam();
     // 本当は unsubscribe 書いたほうがいいけどページ１つしかないので
     this.activatedRoute.queryParams.subscribe(
@@ -95,37 +95,35 @@ export class AppComponent implements OnInit {
     );
   }
 
+  active = true;
+
+  SetEvent(): void{
+    window.addEventListener("blur", () => {
+      console.log("ページからフォーカスが外れた");
+      this.active = false;
+    });
+  }
+
   /**
    * ページ遷移が行われなかったときに拡張機能のインストいーるを促す
    */
   buttonEvent(): void{
-    let active = true;
-    window.addEventListener("blur", () => {
-      console.log("ページからフォーカスが外れた");
-      active = false;
-    });
-    var button1 = document.getElementById("kif-play-1");
-    button1.addEventListener('click', (e) => {
-      active = true;
+    console.log(location.hostname);
+    if(location.hostname == "localhost"){
+    //if(location.hostname == "kify.rei-yumesaki.net"){
+        open("https://kify.rei-yumesaki.net/input.html", '_blank');
+    }
+    else
+    {
+      this.active = true;
       setTimeout(() => {
-        if(active){
+        if(this.active){
           if(confirm('棋譜読みちゃん棋譜共有拡張機能が必要です。インストールページへ移動しますか？')){
             open(this.chromeExtensionAddress, '_blank');
           }
         }
       }, 500);
-    }, false);
-    var button2 = document.getElementById("kif-play-2");
-    button2.addEventListener('click', (e) => {
-      active = true;
-      setTimeout(() => {
-        if(active){
-          if(confirm('棋譜読みちゃん棋譜共有拡張機能が必要です。インストールページへ移動しますか？')){
-            open(this.chromeExtensionAddress, '_blank');
-          }
-        }
-      }, 500);
-    }, false);
+    }
   }
 
 
