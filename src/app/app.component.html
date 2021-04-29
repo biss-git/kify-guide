@@ -21,8 +21,9 @@
 			<h1><a href="https://help.kify.rei-yumesaki.net/" target="_brank"><img class="logo" src="https://kify.rei-yumesaki.net/images/gra_logo_1.png" alt="棋譜読みちゃんロゴ"></a></h1>
 			<nav>
 				<ul class="main-nav">
-					<li><a href="https://help.kify.rei-yumesaki.net/" target="_brank">ユーザーガイド</a></li>
-					<li><a href="https://twitter.com/Kifuyomi" target="_brank">公式Twitter</a></li>
+					<!-- <li><a href="https://help.kify.rei-yumesaki.net/" target="_brank">ユーザーガイド</a></li> -->
+					<!-- <li><a href="https://twitter.com/Kifuyomi" target="_brank">棋譜読みちゃん公式Twitter</a></li> -->
+          <a href="https://twitter.com/Kifuyomi?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @Kifuyomi</a>
 				</ul>
 			</nav>
 		</header>
@@ -34,14 +35,18 @@
         棋譜読みちゃん本家から許可を得て公開しています。<br>
         <!-- 使い方は<a href="assets/help/help.html">こちら</a>をご覧ください。 -->
       </p>
-			<p style="clear: both; margin-top: 50px; margin-bottom: 2px;">棋譜入力欄（KIF/KI2/CSA）※<a href="https://help.kify.rei-yumesaki.net/guide/kifu/" target="_blank">棋譜のサンプルを取得</a></p>
+			<!-- <p style="clear: both; margin-top: 50px; margin-bottom: 2px;">棋譜入力欄（KIF/KI2/CSA）※<a href="https://help.kify.rei-yumesaki.net/guide/kifu/" target="_blank">棋譜のサンプルを取得</a></p> -->
+			<p style="clear: both; margin-top: 50px; margin-bottom: 2px;">棋譜入力欄（KIF/KI2/CSA）</p>
 			<textarea cols="120" rows="10" id="inputKifu" [(ngModel)]="kifu"></textarea><br>
 			<button id="kif-play-1" (mouseover)="setSettings()" class="button" (click)="buttonEvent()">棋譜再生ページへ <i class="material-icons">play_arrow</i></button>
       <br>
 			<!-- <button class="how-button" onclick="location.href='assets/help/help.html'">使い方</button> -->
-			<p style="padding-bottom: 10px;">ご利用には<a [href]="chromeExtensionAddress" target="_blank">chrome拡張機能</a>が必要です。
-        <span style="font-weight: 800;">詳細な使い方</span>は<button class="how-button" onclick="location.href='assets/help/help.html'">使い方</button>をご覧ください。</p>
-		</div>
+			<!-- <p style="padding-bottom: 10px;">ご利用には<a [href]="chromeExtensionAddress" target="_blank">chrome拡張機能</a>が必要です。 -->
+			<p style="padding-bottom: 10px;">
+        <!-- <span style="font-weight: 800;">詳細な使い方</span>は<a target="_blank" href="https://biss-git.github.io/kify-guide/assets/help/help.html"><button class="how-button">使い方</button></a>をご覧ください。</p> -->
+        <!-- 詳細な使い方は<a target="_blank" href="https://biss-git.github.io/kify-guide/assets/help/help.html"><button class="how-button">使い方</button></a>をご覧ください。</p> -->
+        <a target="_blank" href="https://biss-git.github.io/kify-guide/assets/help/help.html"><button class="how-button">使い方</button></a></p>
+      </div>
 	</div>
 
 
@@ -691,4 +696,5 @@
 </body>
 
 </html>
+
 

@@ -109,21 +109,22 @@ export class AppComponent implements OnInit {
    */
   buttonEvent(): void{
     console.log(location.hostname);
-    if(location.hostname == "localhost"){
-    //if(location.hostname == "kify.rei-yumesaki.net"){
-        open("https://kify.rei-yumesaki.net/input.html", '_blank');
-    }
-    else
-    {
-      this.active = true;
-      setTimeout(() => {
-        if(this.active){
-          if(confirm('棋譜読みちゃん棋譜共有拡張機能が必要です。インストールページへ移動しますか？')){
-            open(this.chromeExtensionAddress, '_blank');
-          }
-        }
-      }, 500);
-    }
+    open("https://kify.rei-yumesaki.net/input.html", '_blank');
+
+    // if(location.hostname == "localhost" || location.hostname == "kify.rei-yumesaki.net"){
+    //     open("https://kify.rei-yumesaki.net/input.html", '_blank');
+    // }
+    // else
+    // {
+    //   this.active = true;
+    //   setTimeout(() => {
+    //     if(this.active){
+    //       if(confirm('棋譜読みちゃん棋譜共有拡張機能が必要です。インストールページへ移動しますか？')){
+    //         open(this.chromeExtensionAddress, '_blank');
+    //       }
+    //     }
+    //   }, 500);
+    // }
   }
 
 
