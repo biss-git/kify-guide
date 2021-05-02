@@ -109,7 +109,8 @@ export class AppComponent implements OnInit {
    */
   buttonEvent(): void{
     console.log(location.hostname);
-    open("https://kify.rei-yumesaki.net/input.html", '_blank');
+
+    this.playButtonClkick();
 
     // if(location.hostname == "localhost" || location.hostname == "kify.rei-yumesaki.net"){
     //     open("https://kify.rei-yumesaki.net/input.html", '_blank');
@@ -127,6 +128,87 @@ export class AppComponent implements OnInit {
     // }
   }
 
+  playButtonClkick(){
+    console.log('clicked');
+    let originalKifu = localStorage.getItem('kifu');
+    this.setNumber = localStorage.getItem("kify_setting_now_set_number");
+    this.voiceNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_1");
+    this.komaotoNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_2");
+    this.playSpeedNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_3");
+    this.backNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_5");
+    this.senteIconNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_6");
+    this.goteIconNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_7");
+    this.komaNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_8");
+    this.banNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_9");
+    this.komadaiNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_11");
+    this.mochiNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_12");
+    this.markerNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_13");
+    this.playButtonNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_14");
+    this.selectionNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_16");
+    this.logoNumber = localStorage.getItem("kify_setting_" + this.setNumber + "_17");
+    console.log(originalKifu);
+    this.kifu = this.modifyKifu(originalKifu);
+    console.log(this.kifu);
+    console.log(this.setNumber);
+    console.log(this.voiceNumber);
+    console.log(this.komaotoNumber);
+    console.log(this.playSpeedNumber);
+    console.log(this.backNumber);
+    console.log(this.senteIconNumber);
+    console.log(this.goteIconNumber);
+    console.log(this.komaNumber);
+    console.log(this.banNumber);
+    console.log(this.komadaiNumber);
+    console.log(this.mochiNumber);
+    console.log(this.markerNumber);
+    console.log(this.playButtonNumber);
+    console.log(this.selectionNumber);
+    console.log(this.logoNumber);
+
+    localStorage.setItem( "inputKifu", this.kifu);
+
+    if(this.voiceNumber != null)
+      localStorage.setItem( "inputSound", this.voiceNumber );
+    if(this.komaotoNumber != null)
+      localStorage.setItem( "inputKomaoto", this.komaotoNumber );
+    if(this.playSpeedNumber != null)
+      localStorage.setItem( "inputPlaySpeed", this.playSpeedNumber );
+    if(this.backNumber != null)
+      localStorage.setItem( "inputBack", this.backNumber );
+    if(this.senteIconNumber != null)
+      localStorage.setItem( "inputSenteIcon", this.senteIconNumber );
+    if(this.goteIconNumber != null)
+      localStorage.setItem( "inputGoteIcon", this.goteIconNumber );
+    if(this.komaNumber != null)
+      localStorage.setItem( "inputKoma", this.komaNumber );
+    if(this.banNumber != null)
+      localStorage.setItem( "inputBan", this.banNumber );
+    if(this.komadaiNumber != null)
+      localStorage.setItem( "inputKomadai", this.komadaiNumber );
+    if(this.mochiNumber != null)
+      localStorage.setItem( "inputMochiNumber", this.mochiNumber );
+    if(this.markerNumber != null)
+      localStorage.setItem( "inputMarker", this.markerNumber );
+    if(this.playButtonNumber != null)
+      localStorage.setItem( "inputPlayButton", this.playButtonNumber );
+    if(this.selectionNumber != null)
+      localStorage.setItem( "inputSelection", this.selectionNumber );
+    if(this.logoNumber != null)
+      localStorage.setItem( "inputLogo", this.logoNumber );
+
+    // window.location.href = 'https://kify.rei-yumesaki.net/input.html'; // 通常の遷移
+    window.open('https://kify.rei-yumesaki.net/input.html', '_blank');
+  }
+
+  // 棋譜読みちゃんが読めない棋譜を修正する
+  modifyKifu(kifu){
+    let modifiedKifu = kifu;
+
+    // .kif 形式で詰みという文字があると読めないので、投了に直しておく
+    modifiedKifu = modifiedKifu.replace(/ 詰み/g, ' 投了');
+
+    return modifiedKifu;
+  }
 
   getParam(){
     this.kifu = localStorage.getItem('kifu');
